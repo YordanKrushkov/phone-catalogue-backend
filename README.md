@@ -12,7 +12,7 @@ Node.JS, Express, Mongo DB, Mongoose
 <h4>API's</h4>
 Cloudinary
 
-<a href="https://github.com/YordanKrushkov/mobile-store"><h4>Front End</h4></a>
+<a href="https://github.com/YordanKrushkov/phoneandphones"><h4>Front End</h4></a>
 
 <h4>Installation</h4>
 1. Fork/clone/download the repo and run npm install inside the folder.<br/>
