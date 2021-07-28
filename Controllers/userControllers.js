@@ -1,11 +1,11 @@
-require('dotenv').config();
 const User = require('../Schemas/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const config = require('../Config/config');
 
 //Generate Token
 const generateToken = (data) => {
-    const token = jwt.sign(data, process.env.PRIVATE_KEY);
+    const token = jwt.sign(data, config.privateKey);
     return token;
 };
 
@@ -66,7 +66,7 @@ const verifyUser = async (req, res) => {
         return;
     };
     try {
-        const key = await jwt.verify(token, process.env.PRIVATE_KEY);
+        const key = await jwt.verify(token, config.privateKey);
         if (key) {
             const { email} = key;
             const user = await User.findOne({ email });

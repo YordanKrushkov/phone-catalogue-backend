@@ -1,5 +1,5 @@
-require('dotenv').config();
 const Phone = require('../Schemas/Phone')
+const config = require('../Config/config');
 const { cloudinary } = require('../Utils/cloudinary')
 const jwt = require('jsonwebtoken');
 
@@ -31,7 +31,7 @@ const create = async (req, res,) => {
             });
             img = uploadResponse.public_id;
         };
-        const key = jwt.verify(token, process.env.PRIVATE_KEY);
+        const key = jwt.verify(token, config.privateKey);
         const phone = new Phone({ ...data, image: img });
         phone.save();
 
@@ -50,7 +50,7 @@ const deletePhone = async (req, res) => {
         return;
     }
     try {
-        const key = jwt.verify(token, process.env.PRIVATE_KEY);
+        const key = jwt.verify(token, config.privateKey);
         await Phone.findByIdAndDelete(id);
 
         return 'success';
