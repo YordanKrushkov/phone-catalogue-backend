@@ -9,7 +9,7 @@ const db = require('./Config/database');
 require('./Config/express')(app);
 app.use('/phones', products)
 app.use('/user', users)
-app.listen(process.env.PORT||config.port, (err) => {
+app.listen(process.env.PORT || config.port, (err) => {
 
     if (err) {
         console.log("Problem with the connection:", err);

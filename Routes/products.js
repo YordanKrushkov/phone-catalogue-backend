@@ -1,6 +1,5 @@
 const express=require('express');
 const router= express.Router();
-const data=require('../phones.json')
 const {getAll,getOne, create ,deletePhone,updatePhone}=require('../Controllers/phonesControllers')
 router.get('/', async (req,res)=>{
    const data  = await getAll(req,res);
